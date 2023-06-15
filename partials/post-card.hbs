@@ -58,13 +58,17 @@ which templates loop over to generate a list of posts. --}}
                     {{title}}
                 </h2>
             </header>
-            {{#if excerpt}}
-                <div class="post-card-excerpt">{{excerpt}}</div>
+            {{#if @custom.show_excerpt}}
+                {{#if excerpt}}
+                    <div class="post-card-excerpt">{{excerpt}}</div>
+                {{/if}}
             {{/if}}
         </a>
 
         <footer class="post-card-meta">
+            {{#if @custom.show_dates}}
             <time class="post-card-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+            {{/if}}
             {{#if reading_time}}
                 <span class="post-card-meta-length">{{reading_time}}</span>
             {{/if}}

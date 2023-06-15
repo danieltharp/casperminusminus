@@ -1,6 +1,8 @@
 # Casperminusminus
 A minimal theme for Ghost blogs.
 
+Almost everything can be disabled leaving only bare core content.
+
 Original Casper README follows:
 
 # Casper

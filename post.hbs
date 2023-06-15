@@ -25,31 +25,38 @@ into the {body} tag of the default.hbs template --}}
 
         <h1 class="article-title">{{title}}</h1>
 
-        {{#if custom_excerpt}}
-            <p class="article-excerpt">{{custom_excerpt}}</p>
+        {{#if @custom.show_excerpt}}
+            {{#if custom_excerpt}}
+                <p class="article-excerpt">{{custom_excerpt}}</p>
+            {{/if}}
         {{/if}}
 
         <div class="article-byline">
         <section class="article-byline-content">
-
-            <ul class="author-list">
-                {{#foreach authors}}
-                <li class="author-list-item">
-                    {{#if profile_image}}
-                    <a href="{{url}}" class="author-avatar">
-                        <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
-                    </a>
-                    {{else}}
-                    <a href="{{url}}" class="author-avatar author-profile-image">{{> "icons/avatar"}}</a>
-                    {{/if}}
-                </li>
-                {{/foreach}}
-            </ul>
+            {{#if @custom.show_author}}
+                <ul class="author-list">
+                    {{#foreach authors}}
+                    <li class="author-list-item">
+                        {{#if profile_image}}
+                        <a href="{{url}}" class="author-avatar">
+                            <img class="author-profile-image" src="{{img_url profile_image size="xs"}}" alt="{{name}}" />
+                        </a>
+                        {{else}}
+                        <a href="{{url}}" class="author-avatar author-profile-image">{{> "icons/avatar"}}</a>
+                        {{/if}}
+                    </li>
+                    {{/foreach}}
+                </ul>
+            {{/if}}
 
             <div class="article-byline-meta">
-                <h4 class="author-name">{{authors}}</h4>
+                {{#if @custom.show_author}}
+                    <h4 class="author-name">{{authors}}</h4>
+                {{/if}}
                 <div class="byline-meta-content">
-                    <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+                    {{#if @custom.show_dates}}
+                        <time class="byline-meta-date" datetime="{{date format="YYYY-MM-DD"}}">{{date}}</time>
+                    {{/if}}
                     {{#if reading_time}}
                         <span class="byline-reading-time"><span class="bull">&bull;</span> {{reading_time}}</span>
                     {{/if}}
