@@ -80,7 +80,6 @@
     </div>
 
     {{!-- The global footer at the very bottom of the screen --}}
-    {{#if @custom.show_footer}}
         <footer class="site-footer outer">
             <div class="inner">
                 <section class="copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}</section>
@@ -90,7 +89,6 @@
                 <div class="gh-powered-by"><a href="https://ghost.org/" target="_blank" rel="noopener">Powered by Ghost</a></div>
             </div>
         </footer>
-    {{/if}}
 
 </div>
 {{!-- /.viewport --}}
