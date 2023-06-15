@@ -2,7 +2,7 @@
     "name": "casperminusminus",
     "description": "A cleaner, minimaler defaulter theme for the Ghost publishing platform",
     "demo": "https://demo.ghost.io",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "engines": {
         "ghost": ">=5.0.0"
     },
@@ -188,6 +188,16 @@
             "show_author": {
                 "type": "boolean",
                 "default": true
+            },
+            "make_new_posts_larger": {
+                "type": "boolean",
+                "default": true,
+                "group": "homepage"
+            },
+            "divide_posts_on_homepage": {
+                "type": "boolean",
+                "default": false,
+                "group": "homepage"
             }
         }
     },

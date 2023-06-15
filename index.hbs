@@ -45,6 +45,11 @@ into the {body} of the default.hbs template --}}
         {{#foreach posts}}
             {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
             {{> "post-card"}}
+            {{#if @custom.divide_posts_on_homepage}}
+                {{#unless last}}
+                    <hr>
+                {{/unless}}
+            {{/if}}
         {{/foreach}}
     </div>
 
